@@ -121,6 +121,30 @@ public class IntList {
 
 
     /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+    public static IntList reverse(IntList L) {
+        if (L == null)
+            return null;
+
+        if (L.rest == null)
+            return L;
+
+        IntList curr = null;
+        IntList next = L;
+
+        while (next != null) {
+            IntList tmp = next.rest;
+            next.rest = curr;
+            curr = next;
+            next = tmp;
+        }
+        return curr;
+
+    }
+    /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
      * will be introduced later in the course or feature some form of advanced
      * trickery which we implemented to help make your life a little easier for
@@ -217,7 +241,6 @@ public class IntList {
             }
         }
     }
-
     @Override
     /** Outputs the IntList as a String. You are not expected to read
      * or understand this method. */

@@ -5,6 +5,24 @@ import org.junit.Test;
 public class IntListTest {
 
     /**
+     * Test reverse() op in IntList
+     */
+
+    @Test
+    public void testReverse() {
+
+        IntList one = new IntList(1, null);
+        assertEquals(IntList.reverse(one), one);
+
+        IntList emptyList = new IntList();
+        assertEquals(IntList.reverse(emptyList),emptyList );
+
+        IntList L = IntList.of(1, 2, 3);
+        assertEquals(IntList.of(3, 2, 1), IntList.reverse(L));
+
+    }
+
+    /**
      * Example test that verifies correctness of the IntList.of static
      * method. The main point of this is to convince you that
      * assertEquals knows how to handle IntLists just fine.
